@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lovely</title>
+        <link rel="shortcut icon" type="image/png" href="ic.png">
+        <link rel="stylesheet" href='style.css'>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+        
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            color: #070707;
+            background-color: rgb(0, 0, 0);
+        }
+        /*navbar*/
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            list-style: none;
+            transition: left 0.3s;
+          }
+          
+         .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            background:#2c2E48;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            overflow: hidden;
+        }
+        
+        .logo {
+            position: relative;
+            font-size: 25px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: default;
+            letter-spacing: 5px;
+            opacity: 0;
+            animation: slideRight 1s ease forwards;
+        }
+        /*about*/
+        
+        .about {
+            background-color: #abee9e;
+            display: grid;
+            grid-template-columns: repeat(2, .5fr);
+            /*align-items: center;*/
+            /*gap: 1.5rem;*/
+            width: 100%;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 70px 5% 0;
+        }
+        
+        .about-img {
+            margin-right: 2%;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            padding-right: 10%;
+            margin-top: 2.5%;
+            /*margin-top: 7.5%;*/
+            opacity: 1;
+        }
+        .about-img h2{
+            font-size: 60px;
+            letter-spacing: 5px;
+            color: rgb(0, 0, 0);
+        }
+        .about-img h2 span {
+            color: rgb(255, 255, 255);
+        }
+        .about-img p {
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+            line-height: 2;
+            letter-spacing: 2px;
+            margin-bottom: 4rem;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .abt-res {
+            width: 100%;
+            height: auto;
+            max-width: 492px;
+            max-height: 492px;
+            border-radius: 10px;
+            /*box-shadow: 0 0 5pc cyan, 0 0 5px cyan, 0 0 10px cyan;*/
+            border: rgb(0, 0, 0) 5px solid;
+        }
+        
+        .about-text {
+            margin-right: 2%;
+        }
+        
+        .about-text h2 {
+            font-size: 60px;
+            letter-spacing: 5px;
+            color: rgb(0, 0, 0);
+        }
+        
+        .about-text h2 span {
+            color: rgb(5, 5, 5);
+        }
+        
+        .about-text p {
+            color: rgb(7, 7, 7);
+            font-size: 20px;
+            line-height: 2;
+            letter-spacing: 2px;
+            margin-bottom: 4rem;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        
+        /* Service*/
+        
+        #Services{
+            background-color: hsl(138, 87%, 64%);
+        }
+        
+        .sub-title {
+            text-align: center;
+            font-size: 60px;
+            padding-top: 0px;
+            padding-bottom: 70px;
+        }
+        
+        .sub-title span {
+            color: rgb(20, 20, 20);
+        }
+        
+        .prj-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(259px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .prj-list div {
+            background-color: transparent;
+            padding: 40px;
+            font-size: 13px;
+            font-weight: 13px;
+            border-right: 10px;
+            border-radius: 20px;
+            transition: background 0.5s, transform 0.5s;
+            /*box-shadow: 1px 1px 20px #012290f7, 1px 1px 40px #0053b8f7;*/
+            border: rgb(7, 7, 7) 5px solid;
+        }
+        
+        .container {
+            padding: 50px;
+        
+        }
+        
+        .prj-list div i {
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+        
+        .prj-list div h2 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .prj-list div a {
+            text-decoration: none;
+            color: #000;
+            font-size: 12px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        
+        /*contacts*/
+        .contacts {
+            display: grid;
+            /*grid-template-columns: repeat (2, 1fr);*/
+            align-items: center;
+            gap: 3rem;
+            padding: 40px;
+            padding-top: 70px;
+            justify-content: center;
+            background-color: #444444;
+        }
+        
+        .contact-text {
+            align-content: center;
+            text-align: center;
+        }
+        
+        .contact-text h2 {
+            font-size: 60px;
+            line-height: normal;
+            text-align: center;
+            color: rgb(7, 156, 112);
+        
+        }
+        
+        .contact-text h2 span {
+            color: rgb(255, 255, 255);
+        }
+        .contact-icons i {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid rgb(28, 95, 2);
+            border-radius: 50%;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            margin: 0px 15px 0px 0;
+            opacity: 1;
+        }
+        
+        .contact-icons i:hover {
+            background: rgb(255, 255, 255);
+            color: #076304;
+            box-shadow: 0 0 20px rgb(3, 105, 28);
+        }
+        
+        
+        @keyframes animate-path1 {
+            100% {
+                stroke-dashoffset: 180;
+            }
+        }
+        
+        @keyframes animate-path2 {
+            100% {
+                stroke-dashoffset: 140;
+            }
+        }
+        
+        @keyframes animate-path3 {
+            100% {
+                stroke-dashoffset: 90;
+            }
+        }
+        
+        @keyframes animate-path4 {
+            100% {
+                stroke-dashoffset: 50;
+            }
+        }
+        
+        @keyframes animate-bar {
+            100% {
+                stroke-dashoffset: -1;
+            }
+        }
+        
+        @keyframes showText {
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes animate {
+        
+            100% {
+                transform: scaleX(1);
+            }
+        }
+        
+        @keyframes slideRight {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+        
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideTop {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+        
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideBottom {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+        
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUP {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+        
+            100% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 900px) and (min-width: 700px) {
+            .header{
+                display:block;
+            }
+            .logo {
+                position: relative;
+                font-size: 30px;
+                font-weight: 500;
+                text-align: center;
+            }
+            .logo::after{
+                content: "\a";
+                white-space: pre;
+            }
+            .navbar a {
+                font-size: 25px;
+                font-weight: 200;
+                margin-left: 0px;
+                padding: 10px 10px 0 0;
+            }
+            .navbar a::after{
+                content: "\a";
+                white-space: pre;
+            }
+            
+        }
+        
+        @media (max-width: 700px) and (min-width: 400px) {
+            *{
+                overflow-x: hidden;
+                overflow-y: inherit;
+            }
+            /*navbar*/
+            .header{
+                display:block;
+                
+            }
+            .logo {
+                position: relative;
+                font-size: 20px;
+                font-weight: 500;
+                text-align: center;
+            }
+            .logo::after{
+                content: "\a";
+                white-space: pre;
+            }
+            .navbar a {
+                font-size: 15px;
+                font-weight: 200;
+                margin-left: 0px;
+                padding: 10px 10px 0 0;
+            }
+            .navbar a::after{
+                content: "\a";
+                white-space: pre;
+            }
+            }
+            .img{
+                max-width: 400px;
+                position: relative;
+                left: -10%;
+                top: 2%;
+                padding-bottom: 30px;
+                padding-left: 0;
+                margin-left: 0;
+            }
+          
+            /*about*/
+            .about{
+                padding-bottom: 20px;
+                min-height: auto;
+            }
+            .about-text h2 {
+                font-size: 30px;
+                letter-spacing: 5px;
+            }
+            
+            .about-text p {
+                font-size: 15px;
+                line-height: normal;
+                letter-spacing: 1px;
+                margin-bottom: 4rem;
+                text-align: left;
+            }
+          
+                /*service*/
+            .sub-title {
+                font-size: 50px;
+                padding-bottom: 50px;
+            }
+            .prj-list div{
+                padding: 20px;
+            }
+            /*contact*/
+            .contacts h2{
+                font-size: 50px;
+            }
+            .contact-list i{
+                font-size: 15px;
+                padding: 5px 5px 0 0;
+            }
+            
+            .top{
+                position: fixed;
+                bottom: 2rem;
+                left: 1rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                opacity: 0;
+                transition: all .4s;
+            }
+            
+        
+        
+        @media (max-width: 400px) {
+            *{
+                overflow-x: hidden;
+            }
+            .header{
+                display:block;
+            }
+            .logo {
+                position: relative;
+                font-size: 20px;
+                font-weight: 500;
+                text-align: center;
+            }
+            .logo::after{
+                content: "\a";
+                white-space: pre;
+            }
+            .navbar a {
+                font-size: 13px;
+                font-weight: 200;
+                margin-left: 0px;
+                padding: 10px 4px 0 0;
+            }
+            .navbar a::after{
+                content: "\a";
+                white-space: pre;
+            }
+        
+            /*home*/
+            .home{
+                width: 100%;
+                align-items: normal;
+                padding-top: 40%;
+                padding-bottom: 0;
+            }
+            .home-content h1 {
+                font-size: 30px;
+                font-weight: 600;
+            }
+            
+            .home-content h3 {
+                font-size: 20px;
+                font-weight: 300;
+            }
+            
+            .home-content h4 {
+                font-size: 15px;
+                font-weight: 200;
+            }
+            
+            .home-content h4 span {
+                font-size: 15px;
+                font-weight: 200;
+            }
+            .btn-box:hover {
+                box-shadow: 0 0 5px cyan, 0 0 10px cyan, 0 0 15pc cyan, 0 0 20px cyan, 0 0 25px cyan;
+            }
+            .img{
+                max-width: 300px;
+                position: relative;
+                left: -10%;
+                top: 2%;
+                padding-bottom: 30px;
+                padding-left: 0;
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            /*about*/
+            .about{
+                padding-bottom: 20px;
+                min-height: auto;
+            }
+            .about-text h2 {
+                font-size: 30px;
+                letter-spacing: 5px;
+            }
+            
+            .about-text p {
+                font-size: 15px;
+                line-height: normal;
+                letter-spacing: 0px;
+                margin-bottom: 4rem;
+                text-align: left;
+            }
+            .abtbtn-box:hover {
+                box-shadow: 0 0 5px cyan, 0 0 10px cyan, 0 0 15pc cyan, 0 0 20px cyan, 0 0 25px cyan;
+            }
+        
+        
+            /*service*/
+            .sub-title {
+                font-size: 50px;
+                padding-bottom: 50px;
+            }
+        
+            /*contact*/
+            .contacts h2{
+                font-size: 50px;
+            }
+            .contact-list i{
+                font-size: 13px;
+                padding: 5px 5px 0 0;
+            }
+            
+            .top{
+                position: fixed;
+                bottom: 2rem;
+                left: 1rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                opacity: 0;
+                transition: all .4s;
+            }
+            .top i{
+                color: #000;
+            }
+        }</style>
+    <body>
+        
+        <header class="header">
+            <a href="#" class="logo">Lovely</a>
+        </header>
+        <section>
+            <div class="about" id="About">
+                <div class="about-img">
+                    <img src="profile.jpg" class="abt-res">
+                </div>
+                <div class="about-img">             
+                        <h2>Personal Information</h2>
+                    <p>Name: Lovely Ed Gelig <br>
+                        Age: 19 years old <br>
+                        Zodiac Sign: Cancer <br>
+                        Pronouns: she/her <br>
+                        Hobbies: Singing and cooking <br>
+                        Dream destination: Switzerland  <br>
+                        Favorite color: Green
+                        </p>
+
+                   
+                </div>
+            </div>
+            <div class="about" id="About">
+                <div class="about-img">
+                    <h2>About <span>Me</span></h2>
+                    <p>A woman who has a deep passion for singing. She finds immense joy in sharing her voice with her loved ones, and it's clear that music holds a special place in her heart even though she’s not yet fully confident about it. This individual is also highly motivated to make her family proud, and consistently put in a lot of effort towards achieving her goals. She understands the importance of hard work and dedication, and she’s willing to go the extra mile to make her family proud. What you might find here are simple things that define her. If you wanna know more about this woman, you might want to message her on her socials. <br>
+                        <br>
+                    </p>
+                </div>
+                <div class="about-img">
+                    <h2>Quo<span>tes</span></h2>
+                    <p>“ You can’t stop things from happening. If it’s meant to, it will.”
+                    </p>
+                    <p>“ Everything will come to an end, just like a lengthy day ends at night.”
+                    </p>
+                    <p>“ You need not to dwell on the past and worry about the future. Life is now. Life is here. You should be present.” </p>
+                </div>
+            </div>
+                    
+
+  
+            </div>
+        </section>
+
+        <section id="Services">
+            <div class="project">
+                <div class="container">
+                    <h1 class="sub-title">Interest</h1>
+                    <div class="prj-list">
+                        <div>
+                            <img src="tulips.jpg" alt=""  width="400" height="300">
+                            <p></p>
+                        </div>
+                        <div>
+                            <img src="eraserheads.jpg" alt=""  width="400" height="300">
+                           <p></p>
+                        </div>
+                        <div>
+                            <img src="mtl.jpg" alt=""  width="400" height="300">
+                            <p></p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>       
+
+        <section class="contacts" id="Contact">
+            <div class="contact-text">
+                <h2>Contact <span>Information</span></h2>
+                <div class="contact-list">
+                 </div>
+                <div class="contact-icons">
+                    <a href="https://www.facebook.com/inday.gelig.1" target="_blank"><i class='bx bxl-facebook'></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a>
+               </div>
+            </div>
+            
+        </section>
+    </body>  
+</html>
